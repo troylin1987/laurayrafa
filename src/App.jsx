@@ -98,6 +98,23 @@ export default function App() {
     faq.id,
   ]);
 
+  const chapterIndexes = useMemo(() => {
+    let chapter = 1;
+    const next = () => String(chapter++).padStart(2, '0');
+
+    return {
+      video: showIntroVideo ? next() : null,
+      story: next(),
+      date: next(),
+      agenda: next(),
+      locations: next(),
+      accommodation: next(),
+      guestInfo: next(),
+      rsvp: next(),
+      faq: next(),
+    };
+  }, [showIntroVideo]);
+
   const [countdown, setCountdown] = useState(() => getCountdownParts(event.dateISO));
   const [scrollY, setScrollY] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -248,10 +265,6 @@ export default function App() {
               </a>
             ))}
           </div>
-
-          <a href={`#${rsvp.id}`} className="nav-rsvp">
-            {ui.nav.ctaLabel}
-          </a>
         </div>
       </nav>
 
@@ -297,7 +310,12 @@ export default function App() {
       <main className="page-main">
         {showIntroVideo ? (
           <section className="section reveal track-section" id={multimedia.id}>
-            <SectionHeader index="00" title={multimedia.title} subtitle={multimedia.subtitle} prefix={ui.sectionPrefix} />
+            <SectionHeader
+              index={chapterIndexes.video}
+              title={multimedia.title}
+              subtitle={multimedia.subtitle}
+              prefix={ui.sectionPrefix}
+            />
 
             <video controls preload="metadata" className="teaser-video" poster={multimedia.video.poster}>
               <source src={multimedia.video.src} type={multimedia.video.type} />
@@ -307,7 +325,12 @@ export default function App() {
         ) : null}
 
         <section className="section reveal track-section" id={story.id}>
-          <SectionHeader index="01" title={story.title} subtitle={story.subtitle} prefix={ui.sectionPrefix} />
+          <SectionHeader
+            index={chapterIndexes.story}
+            title={story.title}
+            subtitle={story.subtitle}
+            prefix={ui.sectionPrefix}
+          />
 
           <div className="couple-intro-grid">
             {story.couple.map((person) => (
@@ -343,7 +366,12 @@ export default function App() {
         </section>
 
         <section className="section reveal track-section" id={dateSection.id}>
-          <SectionHeader index="02" title={dateSection.title} subtitle={weddingDateText} prefix={ui.sectionPrefix} />
+          <SectionHeader
+            index={chapterIndexes.date}
+            title={dateSection.title}
+            subtitle={weddingDateText}
+            prefix={ui.sectionPrefix}
+          />
 
           {countdown.done ? (
             <div className="status-card">{dateSection.doneMessage}</div>
@@ -360,7 +388,12 @@ export default function App() {
         </section>
 
         <section className="section reveal track-section" id={agenda.id}>
-          <SectionHeader index="03" title={agenda.title} subtitle={agenda.subtitle} prefix={ui.sectionPrefix} />
+          <SectionHeader
+            index={chapterIndexes.agenda}
+            title={agenda.title}
+            subtitle={agenda.subtitle}
+            prefix={ui.sectionPrefix}
+          />
 
           <div className="timeline">
             {agenda.items.map((item) => (
@@ -375,7 +408,7 @@ export default function App() {
 
         <section className="section reveal track-section" id={locations.id}>
           <SectionHeader
-            index="04"
+            index={chapterIndexes.locations}
             title={locations.title}
             subtitle={locations.subtitle}
             prefix={ui.sectionPrefix}
@@ -397,7 +430,7 @@ export default function App() {
 
         <section className="section reveal track-section" id={accommodation.id}>
           <SectionHeader
-            index="05"
+            index={chapterIndexes.accommodation}
             title={accommodation.title}
             subtitle={accommodation.subtitle}
             prefix={ui.sectionPrefix}
@@ -417,7 +450,12 @@ export default function App() {
         </section>
 
         <section className="section reveal track-section" id={guestInfo.id}>
-          <SectionHeader index="06" title={guestInfo.title} subtitle={guestInfo.subtitle} prefix={ui.sectionPrefix} />
+          <SectionHeader
+            index={chapterIndexes.guestInfo}
+            title={guestInfo.title}
+            subtitle={guestInfo.subtitle}
+            prefix={ui.sectionPrefix}
+          />
 
           <div className="tips-grid">
             {guestInfo.items.map((item) => (
@@ -430,7 +468,12 @@ export default function App() {
         </section>
 
         <section className="section reveal track-section" id={rsvp.id}>
-          <SectionHeader index="08" title={rsvp.title} subtitle={rsvp.subtitle} prefix={ui.sectionPrefix} />
+          <SectionHeader
+            index={chapterIndexes.rsvp}
+            title={rsvp.title}
+            subtitle={rsvp.subtitle}
+            prefix={ui.sectionPrefix}
+          />
 
           <div className="contact-grid">
             {rsvp.contacts.map((contact) => (
@@ -453,7 +496,12 @@ export default function App() {
         </section>
 
         <section className="section reveal track-section" id={faq.id}>
-          <SectionHeader index="09" title={faq.title} subtitle={faq.subtitle} prefix={ui.sectionPrefix} />
+          <SectionHeader
+            index={chapterIndexes.faq}
+            title={faq.title}
+            subtitle={faq.subtitle}
+            prefix={ui.sectionPrefix}
+          />
 
           <div className="faq-list">
             {faq.items.map((item) => (
