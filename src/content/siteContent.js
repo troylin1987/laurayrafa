@@ -9,7 +9,6 @@ export const siteContent = {
       ctaLabel: 'Confirmar',
       labels: {
         home: 'Inicio',
-        experience: 'Experiencia',
         story: 'Historia',
         date: 'Fecha',
         agenda: 'Agenda',
@@ -45,49 +44,10 @@ export const siteContent = {
     ],
     images: [
       {
-        src: 'https://placehold.co/900x580/0B1026/F7D247?text=FOTO+PRINCIPAL+NOVIOS',
+        src: 'https://placehold.co/1500x920/0B1026/F7D247?text=FOTO+PRINCIPAL+NOVIOS',
         alt: 'Placeholder para foto principal de los novios',
         loading: 'eager',
       },
-      {
-        src: 'https://placehold.co/600x380/D72638/FFFFFF?text=FOTO+SECUNDARIA+NOVIOS',
-        alt: 'Placeholder para segunda foto de los novios',
-        loading: 'lazy',
-      },
-    ],
-  },
-  cinematic: {
-    id: 'experiencia',
-    title: 'Secuencia Cinemática',
-    subtitle:
-      'Desliza para vivir una escena en varias capas: luz, memoria, destino y celebración en una sola línea temporal.',
-    intro:
-      'No es solo una invitación. Es el prólogo de una historia que se abre ante ti a medida que avanzas.',
-    cards: [
-      {
-        title: 'Primer Contacto',
-        text: 'Cuando dos mundos frikis se cruzan, el universo empieza a conspirar.',
-        src: 'https://placehold.co/940x1180/0E1736/F4CF69?text=PRIMER+CONTACTO',
-        alt: 'Placeholder escena primer contacto',
-      },
-      {
-        title: 'Modo Cooperativo',
-        text: 'Cada aventura compartida sube de nivel la historia.',
-        src: 'https://placehold.co/940x1180/162B60/FFFFFF?text=MODO+COOPERATIVO',
-        alt: 'Placeholder escena modo cooperativo',
-      },
-      {
-        title: 'Boss Final',
-        text: 'El gran día: la pantalla más épica se juega con todos vosotros.',
-        src: 'https://placehold.co/940x1180/1A142A/6DE0FF?text=BOSS+FINAL',
-        alt: 'Placeholder escena boss final',
-      },
-    ],
-    milestones: [
-      'Luz inicial',
-      'Recuerdo activo',
-      'Compromiso',
-      'Celebración total',
     ],
   },
   story: {
@@ -121,38 +81,41 @@ export const siteContent = {
         year: '2018',
         title: 'Primer encuentro',
         text: 'Nos conocimos entre risas, mandos y una batalla épica de Mario Kart.',
+        image: {
+          src: 'https://placehold.co/1200x780/101938/F7D247?text=HISTORIA+2018',
+          alt: 'Placeholder historia 2018',
+          loading: 'lazy',
+        },
       },
       {
         year: '2019',
         title: 'Primer viaje juntos',
         text: 'Descubrimos que el mejor mapa siempre era el que recorríamos en equipo.',
+        image: {
+          src: 'https://placehold.co/1200x780/101938/F7D247?text=HISTORIA+2019',
+          alt: 'Placeholder historia 2019',
+          loading: 'lazy',
+        },
       },
       {
         year: '2022',
         title: 'Modo cooperativo',
         text: 'Casa nueva, rutina compartida y la certeza de que queríamos la misma historia.',
+        image: {
+          src: 'https://placehold.co/1200x780/101938/F7D247?text=HISTORIA+2022',
+          alt: 'Placeholder historia 2022',
+          loading: 'lazy',
+        },
       },
       {
         year: '2026',
         title: 'Propuesta épica',
         text: 'Un anillo, un "sí" y una misión desbloqueada: celebrar nuestra boda con todos vosotros.',
-      },
-    ],
-    gallery: [
-      {
-        src: 'https://placehold.co/620x420/101938/F7D247?text=FOTO+HISTORIA+1',
-        alt: 'Placeholder foto historia 1',
-        loading: 'lazy',
-      },
-      {
-        src: 'https://placehold.co/620x420/101938/F7D247?text=FOTO+HISTORIA+2',
-        alt: 'Placeholder foto historia 2',
-        loading: 'lazy',
-      },
-      {
-        src: 'https://placehold.co/620x420/101938/F7D247?text=FOTO+HISTORIA+3',
-        alt: 'Placeholder foto historia 3',
-        loading: 'lazy',
+        image: {
+          src: 'https://placehold.co/1200x780/101938/F7D247?text=HISTORIA+2026',
+          alt: 'Placeholder historia 2026',
+          loading: 'lazy',
+        },
       },
     ],
   },
@@ -266,6 +229,7 @@ export const siteContent = {
   },
   multimedia: {
     id: 'multimedia',
+    enabled: false,
     title: 'Trailer de la misión',
     subtitle: 'Espacio preparado para vídeo de los novios (sustituible por MP4 o YouTube).',
     video: {
@@ -320,5 +284,6 @@ export const siteContent = {
   },
   footer: {
     text: 'Laura & Rafa · Gracias por acompañarnos en esta aventura.',
+    cookieNotice: 'Esta web puede usar cookies; al navegar por ella aceptas su uso.',
   },
 };

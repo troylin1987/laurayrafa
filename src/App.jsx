@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { siteContent } from './content/siteContent';
 
 function getCountdownParts(targetISO) {
@@ -16,6 +16,11 @@ function getCountdownParts(targetISO) {
   const seconds = Math.floor((diff / 1000) % 60);
 
   return { done: false, days, hours, minutes, seconds };
+}
+
+function capitalizeFirst(text) {
+  if (!text) return '';
+  return text.charAt(0).toUpperCase() + text.slice(1);
 }
 
 function SectionHeader({ index, title, subtitle, prefix }) {
@@ -36,7 +41,6 @@ export default function App() {
     ui,
     event,
     hero,
-    cinematic,
     story,
     dateSection,
     agenda,
@@ -49,51 +53,56 @@ export default function App() {
     footer,
   } = siteContent;
 
-  const navItems = useMemo(
-    () => [
-      { id: 'inicio', label: ui.nav.labels.home },
-      { id: cinematic.id, label: ui.nav.labels.experience },
+  const showIntroVideo = Boolean(multimedia?.enabled);
+  const heroImage = hero.images[0] || null;
+
+  const navItems = useMemo(() => {
+    const items = [{ id: 'inicio', label: ui.nav.labels.home }];
+
+    if (showIntroVideo) {
+      items.push({ id: multimedia.id, label: ui.nav.labels.media });
+    }
+
+    items.push(
       { id: story.id, label: ui.nav.labels.story },
       { id: dateSection.id, label: ui.nav.labels.date },
       { id: agenda.id, label: ui.nav.labels.agenda },
       { id: locations.id, label: ui.nav.labels.location },
       { id: accommodation.id, label: ui.nav.labels.stay },
       { id: guestInfo.id, label: ui.nav.labels.guests },
-      { id: multimedia.id, label: ui.nav.labels.media },
       { id: rsvp.id, label: ui.nav.labels.rsvp },
-      { id: faq.id, label: ui.nav.labels.faq },
-    ],
-    [
-      ui.nav.labels.home,
-      ui.nav.labels.experience,
-      ui.nav.labels.story,
-      ui.nav.labels.date,
-      ui.nav.labels.agenda,
-      ui.nav.labels.location,
-      ui.nav.labels.stay,
-      ui.nav.labels.guests,
-      ui.nav.labels.media,
-      ui.nav.labels.rsvp,
-      ui.nav.labels.faq,
-      cinematic.id,
-      story.id,
-      dateSection.id,
-      agenda.id,
-      locations.id,
-      accommodation.id,
-      guestInfo.id,
-      multimedia.id,
-      rsvp.id,
-      faq.id,
-    ]
-  );
+      { id: faq.id, label: ui.nav.labels.faq }
+    );
+
+    return items;
+  }, [
+    showIntroVideo,
+    ui.nav.labels.home,
+    ui.nav.labels.media,
+    ui.nav.labels.story,
+    ui.nav.labels.date,
+    ui.nav.labels.agenda,
+    ui.nav.labels.location,
+    ui.nav.labels.stay,
+    ui.nav.labels.guests,
+    ui.nav.labels.rsvp,
+    ui.nav.labels.faq,
+    multimedia.id,
+    story.id,
+    dateSection.id,
+    agenda.id,
+    locations.id,
+    accommodation.id,
+    guestInfo.id,
+    rsvp.id,
+    faq.id,
+  ]);
 
   const [countdown, setCountdown] = useState(() => getCountdownParts(event.dateISO));
   const [scrollY, setScrollY] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [cinematicProgress, setCinematicProgress] = useState(0);
   const [activeSection, setActiveSection] = useState('inicio');
-  const cinematicRef = useRef(null);
+  const [lightboxImage, setLightboxImage] = useState(null);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -121,14 +130,6 @@ export default function App() {
         if (probe >= section.offsetTop) {
           currentSection = section.id;
         }
-      }
-
-      if (cinematicRef.current) {
-        const rect = cinematicRef.current.getBoundingClientRect();
-        const total = Math.max(rect.height - window.innerHeight, 1);
-        const passed = Math.min(Math.max(-rect.top, 0), total);
-        const progress = passed / total;
-        setCinematicProgress(progress);
       }
 
       setActiveSection((prev) => (prev === currentSection ? prev : currentSection));
@@ -159,14 +160,32 @@ export default function App() {
     return () => observer.disconnect();
   }, []);
 
-  const weddingDateText = useMemo(
-    () =>
-      new Intl.DateTimeFormat(locale, {
-        dateStyle: 'full',
-        timeStyle: 'short',
-      }).format(new Date(event.dateISO)),
-    [event.dateISO, locale]
-  );
+  useEffect(() => {
+    const onKeyDown = (eventKey) => {
+      if (eventKey.key === 'Escape') {
+        setLightboxImage(null);
+      }
+    };
+
+    if (lightboxImage) {
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', onKeyDown);
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', onKeyDown);
+    };
+  }, [lightboxImage]);
+
+  const weddingDateText = useMemo(() => {
+    const raw = new Intl.DateTimeFormat(locale, {
+      dateStyle: 'full',
+      timeStyle: 'short',
+    }).format(new Date(event.dateISO));
+
+    return capitalizeFirst(raw);
+  }, [event.dateISO, locale]);
 
   const heroStampText = useMemo(
     () =>
@@ -187,34 +206,16 @@ export default function App() {
 
   const heroParallax = Math.min(scrollY * 0.14, 110);
   const glowParallax = Math.min(scrollY * 0.08, 65);
-  const cinematicCardStyles = useMemo(() => {
-    const p = cinematicProgress;
 
-    return [
-      {
-        transform: `translate(-50%, -50%)
-          translate3d(${(-34 + p * 12).toFixed(2)}%, ${(8 - p * 12).toFixed(2)}%, 0)
-          rotate(${(-14 + p * 9).toFixed(2)}deg)
-          scale(${(0.95 + p * 0.02).toFixed(3)})`,
-        opacity: (0.78 + p * 0.18).toFixed(3),
-      },
-      {
-        transform: `translate(-50%, -50%)
-          translate3d(${(0 + p * 2).toFixed(2)}%, ${(18 - p * 22).toFixed(2)}%, 0)
-          rotate(${(0 - p * 2).toFixed(2)}deg)
-          scale(${(0.9 + p * 0.18).toFixed(3)})`,
-        opacity: (0.64 + p * 0.36).toFixed(3),
-      },
-      {
-        transform: `translate(-50%, -50%)
-          translate3d(${(32 - p * 16).toFixed(2)}%, ${(10 - p * 18).toFixed(2)}%, 0)
-          rotate(${(12 - p * 16).toFixed(2)}deg)
-          scale(${(0.86 + p * 0.24).toFixed(3)})`,
-        opacity: (0.45 + p * 0.55).toFixed(3),
-      },
-    ];
-  }, [cinematicProgress]);
-  const milestoneProgress = cinematicProgress * (cinematic.milestones.length + 0.2);
+  const openLightbox = (image) => {
+    if (!image?.src) return;
+    setLightboxImage({
+      src: image.src,
+      alt: image.alt || 'Imagen ampliada',
+    });
+  };
+
+  const closeLightbox = () => setLightboxImage(null);
 
   return (
     <div className="site-shell">
@@ -275,58 +276,35 @@ export default function App() {
             </div>
           </div>
 
-          <div className="hero-media-frame">
-            <div className="hero-media-grid">
-              {hero.images.map((image) => (
-                <img key={image.src} src={image.src} alt={image.alt} loading={image.loading} />
-              ))}
+          {heroImage ? (
+            <div className="hero-media-frame">
+              <button
+                type="button"
+                className="hero-image-trigger"
+                onClick={() => openLightbox(heroImage)}
+                aria-label="Ver foto en grande"
+              >
+                <img src={heroImage.src} alt={heroImage.alt} loading={heroImage.loading} />
+              </button>
+              <p className="hero-stamp">
+                {ui.heroStampPrefix} · {heroStampText}
+              </p>
             </div>
-            <p className="hero-stamp">
-              {ui.heroStampPrefix} · {heroStampText}
-            </p>
-          </div>
+          ) : null}
         </div>
       </header>
 
       <main className="page-main">
-        <section className="cinematic-scroll track-section" id={cinematic.id} ref={cinematicRef}>
-          <div className="cinematic-sticky">
-            <div className="cinematic-stage">
-              <div className="cinematic-copy">
-                <p className="section-overline">
-                  {ui.sectionPrefix} 00
-                </p>
-                <h2>{cinematic.title}</h2>
-                <p>{cinematic.subtitle}</p>
-                <p className="cinematic-intro">{cinematic.intro}</p>
-              </div>
+        {showIntroVideo ? (
+          <section className="section reveal track-section" id={multimedia.id}>
+            <SectionHeader index="00" title={multimedia.title} subtitle={multimedia.subtitle} prefix={ui.sectionPrefix} />
 
-              <div className="cinematic-card-stack" aria-hidden="true">
-                {cinematic.cards.map((card, index) => (
-                  <article
-                    key={card.title}
-                    className={`cinematic-card cinematic-card--${index + 1}`}
-                    style={cinematicCardStyles[index]}
-                  >
-                    <img src={card.src} alt={card.alt} loading="lazy" />
-                    <div className="cinematic-card-copy">
-                      <h3>{card.title}</h3>
-                      <p>{card.text}</p>
-                    </div>
-                  </article>
-                ))}
-              </div>
-
-              <ol className="cinematic-milestones">
-                {cinematic.milestones.map((milestone, index) => (
-                  <li key={milestone} className={milestoneProgress >= index + 0.35 ? 'is-active' : ''}>
-                    {milestone}
-                  </li>
-                ))}
-              </ol>
-            </div>
-          </div>
-        </section>
+            <video controls preload="metadata" className="teaser-video" poster={multimedia.video.poster}>
+              <source src={multimedia.video.src} type={multimedia.video.type} />
+              {multimedia.video.fallbackText}
+            </video>
+          </section>
+        ) : null}
 
         <section className="section reveal track-section" id={story.id}>
           <SectionHeader index="01" title={story.title} subtitle={story.subtitle} prefix={ui.sectionPrefix} />
@@ -349,13 +327,17 @@ export default function App() {
                 <span>{item.year}</span>
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
+                {item.image ? (
+                  <button
+                    type="button"
+                    className="timeline-image-trigger"
+                    onClick={() => openLightbox(item.image)}
+                    aria-label={`Ampliar imagen de ${item.year}`}
+                  >
+                    <img src={item.image.src} alt={item.image.alt} loading={item.image.loading || 'lazy'} />
+                  </button>
+                ) : null}
               </article>
-            ))}
-          </div>
-
-          <div className="gallery-row">
-            {story.gallery.map((image) => (
-              <img key={image.src} src={image.src} alt={image.alt} loading={image.loading} />
             ))}
           </div>
         </section>
@@ -447,20 +429,6 @@ export default function App() {
           </div>
         </section>
 
-        <section className="section reveal track-section" id={multimedia.id}>
-          <SectionHeader
-            index="07"
-            title={multimedia.title}
-            subtitle={multimedia.subtitle}
-            prefix={ui.sectionPrefix}
-          />
-
-          <video controls preload="metadata" className="teaser-video" poster={multimedia.video.poster}>
-            <source src={multimedia.video.src} type={multimedia.video.type} />
-            {multimedia.video.fallbackText}
-          </video>
-        </section>
-
         <section className="section reveal track-section" id={rsvp.id}>
           <SectionHeader index="08" title={rsvp.title} subtitle={rsvp.subtitle} prefix={ui.sectionPrefix} />
 
@@ -500,7 +468,15 @@ export default function App() {
 
       <footer className="footer reveal">
         <p>{footer.text}</p>
+        <p className="cookie-notice">{footer.cookieNotice}</p>
       </footer>
+
+      {lightboxImage ? (
+        <button type="button" className="lightbox-overlay" onClick={closeLightbox} aria-label="Cerrar imagen ampliada">
+          <img src={lightboxImage.src} alt={lightboxImage.alt} />
+          <span>Toca para cerrar</span>
+        </button>
+      ) : null}
     </div>
   );
 }
