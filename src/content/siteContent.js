@@ -1,5 +1,27 @@
 export const siteContent = {
   locale: 'es-ES',
+  ui: {
+    sectionPrefix: 'Capítulo',
+    heroStampPrefix: 'Misión desbloqueada',
+    nav: {
+      ariaLabel: 'Navegación principal',
+      brandTagline: 'Wedding Mission',
+      ctaLabel: 'Confirmar',
+      labels: {
+        home: 'Inicio',
+        experience: 'Experiencia',
+        story: 'Historia',
+        date: 'Fecha',
+        agenda: 'Agenda',
+        location: 'Lugar',
+        stay: 'Alojamiento',
+        guests: 'Invitados',
+        media: 'Video',
+        rsvp: 'RSVP',
+        faq: 'FAQ',
+      },
+    },
+  },
   event: {
     coupleNames: 'Laura & Rafa',
     dateISO: '2027-06-19T17:00:00+02:00',
@@ -32,6 +54,40 @@ export const siteContent = {
         alt: 'Placeholder para segunda foto de los novios',
         loading: 'lazy',
       },
+    ],
+  },
+  cinematic: {
+    id: 'experiencia',
+    title: 'Secuencia Cinemática',
+    subtitle:
+      'Desliza para vivir una escena en varias capas: luz, memoria, destino y celebración en una sola línea temporal.',
+    intro:
+      'No es solo una invitación. Es el prólogo de una historia que se abre ante ti a medida que avanzas.',
+    cards: [
+      {
+        title: 'Primer Contacto',
+        text: 'Cuando dos mundos frikis se cruzan, el universo empieza a conspirar.',
+        src: 'https://placehold.co/940x1180/0E1736/F4CF69?text=PRIMER+CONTACTO',
+        alt: 'Placeholder escena primer contacto',
+      },
+      {
+        title: 'Modo Cooperativo',
+        text: 'Cada aventura compartida sube de nivel la historia.',
+        src: 'https://placehold.co/940x1180/162B60/FFFFFF?text=MODO+COOPERATIVO',
+        alt: 'Placeholder escena modo cooperativo',
+      },
+      {
+        title: 'Boss Final',
+        text: 'El gran día: la pantalla más épica se juega con todos vosotros.',
+        src: 'https://placehold.co/940x1180/1A142A/6DE0FF?text=BOSS+FINAL',
+        alt: 'Placeholder escena boss final',
+      },
+    ],
+    milestones: [
+      'Luz inicial',
+      'Recuerdo activo',
+      'Compromiso',
+      'Celebración total',
     ],
   },
   story: {
