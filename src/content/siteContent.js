@@ -254,18 +254,18 @@ export const siteContent = {
         whatsappLinks: [
           {
             label: 'WhatsApp 627680946',
-            url: 'https://wa.me/34627680946?text=Hola%2C%20soy%20XXXX%20.%20Confirmo%20XXX%20asistentes.',
+            url: 'https://wa.me/34627680946?text=Hola%2C%20soy%20Spiderman.%20Confirmo%20que%20ir%C3%A9%20con%20Mary%20Jane%20Watson.',
           },
           {
             label: 'WhatsApp 638549989',
-            url: 'https://wa.me/34638549989?text=Hola%2C%20soy%20XXXX%20.%20Confirmo%20XXX%20asistentes.',
+            url: 'https://wa.me/34638549989?text=Hola%2C%20soy%20Spiderman.%20Confirmo%20que%20ir%C3%A9%20con%20Mary%20Jane%20Watson.',
           },
         ],
         email: 'lyrmicasa@gmail.com',
       },
     ],
     templateMessage:
-      'Mensaje sugerido (modo friki): "Hola, soy XXXX . Confirmo XXX asistentes."',
+      'Mensaje sugerido: "Hola, soy Spiderman. Confirmo que iré con Mary Jane Watson."',
   },
   faq: {
     id: 'faq',

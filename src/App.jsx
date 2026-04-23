@@ -429,9 +429,15 @@ export default function App() {
               <article key={card.title} className="info-card">
                 <h3>{card.title}</h3>
                 <p>{card.text}</p>
-                <a href={card.url} target="_blank" rel="noreferrer" className="btn btn-small">
-                  {card.actionLabel}
-                </a>
+                {card.url?.startsWith('#') ? (
+                  <a href={card.url} className="btn btn-small">
+                    {card.actionLabel}
+                  </a>
+                ) : (
+                  <a href={card.url} target="_blank" rel="noreferrer" className="btn btn-small">
+                    {card.actionLabel}
+                  </a>
+                )}
               </article>
             ))}
           </div>
