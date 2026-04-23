@@ -23,13 +23,13 @@ export const siteContent = {
   },
   event: {
     coupleNames: 'Laura & Rafa',
-    dateISO: '2027-06-19T17:00:00+02:00',
+    dateISO: '2026-06-13T18:30:00+02:00',
   },
   hero: {
-    kicker: 'Save the Date | Episodio I',
+    kicker: 'Save the Date | Episodio Final',
     title: '¡Nos casamos!',
     lead:
-      'Laura y Rafa os invitan a una aventura galáctica con sabor retro gamer. Reservad energía, ganas de bailar y muchas sonrisas.',
+      'Después de casi dos décadas de historia compartida, por fin llega el gran día. Gracias por formar parte de esta aventura.',
     actions: [
       {
         label: 'Ver agenda del día',
@@ -44,8 +44,8 @@ export const siteContent = {
     ],
     images: [
       {
-        src: 'https://placehold.co/1500x920/0B1026/F7D247?text=FOTO+PRINCIPAL+NOVIOS',
-        alt: 'Placeholder para foto principal de los novios',
+        src: '/media/novios/hero-principal.jpg',
+        alt: 'Foto principal de Laura y Rafa',
         loading: 'eager',
       },
     ],
@@ -53,67 +53,71 @@ export const siteContent = {
   story: {
     id: 'historia',
     title: 'Nuestra historia',
-    subtitle: 'Conoce a los protagonistas y cómo empezó esta aventura.',
+    subtitle: 'De un verano en Madrid a la mayor aventura de nuestras vidas.',
     couple: [
       {
         name: 'Laura',
         bio:
-          'Fan de los videojuegos narrativos, las sagas de fantasía y las playlists que convierten cualquier viaje en una película.',
+          'Desde muy joven tuvo claro que el esfuerzo y la constancia eran la base de cualquier sueño. Entre estudios, trabajo y muchas ganas de construir un futuro, encontró en Rafa al compañero de viaje perfecto.',
         image: {
-          src: 'https://placehold.co/460x560/101938/F7D247?text=LAURA',
-          alt: 'Placeholder retrato de Laura',
+          src: '/media/novios/laura.jpg',
+          alt: 'Foto de Laura',
           loading: 'lazy',
         },
       },
       {
         name: 'Rafa',
         bio:
-          'Amante de la ciencia ficción, los juegos cooperativos y las aventuras improvisadas con final feliz.',
+          'Empezó aquel verano con 16 años queriendo ahorrar para su PSP y acabar de vacaciones con su hermano. No sabía que, entre cajas y trenes, empezaba la historia más importante de su vida.',
         image: {
-          src: 'https://placehold.co/460x560/101938/F7D247?text=RAFA',
-          alt: 'Placeholder retrato de Rafa',
+          src: '/media/novios/rafa.jpg',
+          alt: 'Foto de Rafa',
           loading: 'lazy',
         },
       },
     ],
     timeline: [
       {
-        year: '2018',
+        year: '2007',
         title: 'Primer encuentro',
-        text: 'Nos conocimos entre risas, mandos y una batalla épica de Mario Kart.',
+        text:
+          'Madrid, julio de 2007. Entre el calor del asfalto y el aire acondicionado de El Corte Inglés de Nuevos Ministerios, nos conocimos trabajando en la línea de cajas: Rafa recogiendo cestas y Laura en caja. En los ratos tranquilos de las 16:00 y en el trayecto en tren hasta Atocha empezó todo.',
         image: {
-          src: 'https://placehold.co/1200x780/101938/F7D247?text=HISTORIA+2018',
-          alt: 'Placeholder historia 2018',
+          src: '/media/timeline/2007-primer-encuentro.jpg',
+          alt: 'Foto de Laura y Rafa jóvenes',
           loading: 'lazy',
         },
       },
       {
-        year: '2019',
+        year: '2009',
         title: 'Primer viaje juntos',
-        text: 'Descubrimos que el mejor mapa siempre era el que recorríamos en equipo.',
+        text:
+          'Nuestro primer gran viaje fue con amigos, al más puro estilo Gandía Shore: La Mata (Alicante), unas 20 personas, un dúplex de 3 habitaciones y una organización digna del camarote de los hermanos Marx. Caótico, intenso e inolvidable.',
         image: {
-          src: 'https://placehold.co/1200x780/101938/F7D247?text=HISTORIA+2019',
-          alt: 'Placeholder historia 2019',
+          src: '/media/timeline/2009-primer-viaje.jpg',
+          alt: 'Foto del primer viaje juntos',
           loading: 'lazy',
         },
       },
       {
-        year: '2022',
+        year: '2025',
         title: 'Modo cooperativo',
-        text: 'Casa nueva, rutina compartida y la certeza de que queríamos la misma historia.',
+        text:
+          'Después de 18 años persiguiendo un hogar en tiempos difíciles, dejamos de esperar el momento perfecto. Encontramos un rincón con encanto y nos lanzamos. Por fin empezamos a construir, día a día, la vida que llevábamos imaginando casi dos décadas.',
         image: {
-          src: 'https://placehold.co/1200x780/101938/F7D247?text=HISTORIA+2022',
-          alt: 'Placeholder historia 2022',
+          src: '/media/timeline/2025-modo-cooperativo.jpg',
+          alt: 'Foto del comienzo de vida en común',
           loading: 'lazy',
         },
       },
       {
         year: '2026',
         title: 'Propuesta épica',
-        text: 'Un anillo, un "sí" y una misión desbloqueada: celebrar nuestra boda con todos vosotros.',
+        text:
+          'Cuando por fin el universo se alineó, decidimos reorganizar nuestro mundo sin esperar más. Nuestra boda será íntima, auténtica y para los imprescindibles. Aviso rápido, sí, pero con el corazón clarísimo: en esa lista corta estáis vosotros.',
         image: {
-          src: 'https://placehold.co/1200x780/101938/F7D247?text=HISTORIA+2026',
-          alt: 'Placeholder historia 2026',
+          src: '/media/timeline/2026-propuesta-epica.jpg',
+          alt: 'Foto de la propuesta y anuncio de boda',
           loading: 'lazy',
         },
       },
@@ -134,107 +138,105 @@ export const siteContent = {
   agenda: {
     id: 'agenda',
     title: 'Agenda del gran día',
-    subtitle: 'Una guía rápida para no perderos ningún momento.',
+    subtitle: 'Timing previsto (aprox.).',
     items: [
       {
-        time: '17:00',
-        title: 'Ceremonia',
-        text: 'Comienzo puntual de la ceremonia. Recomendamos llegar con 20 minutos de antelación.',
+        time: '18:30',
+        title: 'Ceremonia (jardín trasero)',
+        text: 'Comienzo de ceremonia. Si todo va en hora, duración estimada: 45 minutos.',
       },
       {
-        time: '19:00',
-        title: 'Traslado al convite',
-        text: 'Salida hacia la finca. Habrá indicaciones y opción de transporte compartido.',
+        time: '19:15 - 20:00',
+        title: 'Fotos y felicitaciones',
+        text: 'Momento para abrazos, fotos y primeras celebraciones tras la ceremonia.',
       },
       {
-        time: '19:45',
-        title: 'Cóctel y cena',
-        text: 'Picoteo, fotos, brindis y cena con menú especial para quienes nos lo indiquen al confirmar.',
+        time: '20:00',
+        title: 'Cóctel (terraza planta alta)',
+        text: 'Aperitivo en terraza, brindis y arranque oficial de la fiesta.',
       },
       {
-        time: '23:30',
-        title: 'Fiesta',
-        text: 'DJ, barra libre y pista abierta hasta que el cuerpo aguante.',
+        time: '21:30',
+        title: 'Cena (salón o terraza)',
+        text: 'Cena principal del evento.',
+      },
+      {
+        time: '00:00',
+        title: 'Fiezzzton',
+        text: '3 horas de jolgorio para cerrar la noche por todo lo alto.',
       },
     ],
   },
   locations: {
     id: 'ubicaciones',
     title: 'Dónde será',
-    subtitle: 'Ceremonia y convite con enlaces directos para llegar.',
+    subtitle: 'Toda la boda se celebra en el mismo lugar.',
     cards: [
       {
-        title: 'Ceremonia',
-        place: 'Parroquia de San Pixel',
-        address: 'Calle del Reino Champiñón, 12 · Madrid',
-        mapsUrl: 'https://maps.app.goo.gl/REEMPLAZAR_CEREMONIA',
+        title: 'Ceremonia + convite + fiesta',
+        place: 'Hotel Los Olivos (Pol. Ind. Los Olivos)',
+        address: 'Ctra. de Andalucia A-4 km 12,700, 28906 Getafe',
+        mapsUrl:
+          'https://www.google.com/maps/place/Hotel+Los+Olivos/@40.314245,-3.6937042,17z/data=!4m20!1m10!3m9!1s0xd42213cdc3227f3:0x3b659e4e981ad4df!2sHotel+Los+Olivos!5m2!4m1!1i2!8m2!3d40.3142409!4d-3.6911293!16s%2Fg%2F1trchqtz!3m8!1s0xd42213cdc3227f3:0x3b659e4e981ad4df!5m2!4m1!1i2!8m2!3d40.3142409!4d-3.6911293!16s%2Fg%2F1trchqtz?entry=ttu&g_ep=EgoyMDI2MDQyMC4wIKXMDSoASAFQAw%3D%3D',
         actionLabel: 'Cómo llegar (Google Maps)',
-      },
-      {
-        title: 'Convite',
-        place: 'Finca Estelar Tatooine',
-        address: 'Camino de la Fuerza, 7 · Madrid',
-        mapsUrl: 'https://maps.app.goo.gl/REEMPLAZAR_CONVITE',
-        actionLabel: 'Ir al convite',
       },
     ],
   },
   accommodation: {
     id: 'alojamiento',
     title: 'Alojamiento recomendado',
-    subtitle: 'Opciones cercanas para descansar después de la fiesta.',
+    subtitle: 'Opciones para quedaros cerca del evento.',
     cards: [
       {
-        title: 'Hotel Rebel Base',
-        text: '★★★★ · 8 min en coche del convite',
-        url: 'https://www.booking.com',
-        actionLabel: 'Ver disponibilidad',
+        title: 'Hotel Los Olivos',
+        text: 'Podéis reservar en el mismo hotel. Indicad que vais a la boda de Rafael y Laura para aplicar descuento.',
+        url:
+          'https://www.google.com/maps/place/Hotel+Los+Olivos/@40.314245,-3.6937042,17z/data=!4m20!1m10!3m9!1s0xd42213cdc3227f3:0x3b659e4e981ad4df!2sHotel+Los+Olivos!5m2!4m1!1i2!8m2!3d40.3142409!4d-3.6911293!16s%2Fg%2F1trchqtz!3m8!1s0xd42213cdc3227f3:0x3b659e4e981ad4df!5m2!4m1!1i2!8m2!3d40.3142409!4d-3.6911293!16s%2Fg%2F1trchqtz?entry=ttu&g_ep=EgoyMDI2MDQyMC4wIKXMDSoASAFQAw%3D%3D',
+        actionLabel: 'Ver hotel',
       },
       {
-        title: 'Apartamentos Hyrule Center',
-        text: 'Ideal para grupos · cocina incluida',
-        url: 'https://www.airbnb.es',
-        actionLabel: 'Ver opciones',
-      },
-      {
-        title: 'Hostal Pixel Inn',
-        text: 'Opción económica · 12 min del evento',
-        url: 'https://www.google.com/travel/hotels',
-        actionLabel: 'Buscar tarifas',
+        title: 'Villa Friki',
+        text: 'También hay habitaciones libres. Consultad con los novios para coordinar disponibilidad.',
+        url: '#confirmacion',
+        actionLabel: 'Consultar con novios',
       },
     ],
   },
   guestInfo: {
     id: 'invitados',
     title: 'Info útil para invitados',
-    subtitle: 'Todo lo que suele preguntarse antes de una boda.',
+    subtitle: 'Detalles importantes para disfrutarlo al máximo.',
     items: [
       {
         title: 'Dress code',
-        text: 'Elegante con guiño friki opcional: pin, calcetines temáticos o detalle retro.',
+        text: 'Cada uno como quiera. Si queréis un toque friki, más que bienvenido.',
       },
       {
         title: 'Transporte',
-        text: 'Si queréis transporte compartido, indicadlo al confirmar y coordinaremos grupos.',
+        text: 'En coche modo GTA (hay parking), Uber o Crazy Taxi. En transporte público: Renfe a El Casar (C3) + autobús 447 dirección Legazpi.',
       },
       {
         title: 'Regalo',
-        text: 'Vuestra presencia es nuestro mejor regalo. Si queréis colaborar, añadiremos aquí la info.',
+        text: 'Vuestra presencia ya es un regalo. Si queréis aportar algo extra, buscad la cajita en la mesa presidencial. Insert coins & play!!',
+      },
+      {
+        title: 'Imágenes del evento',
+        text: 'Escanead el QR que tendréis en vuestro plato y subid todas las fotos y vídeos (incluida ceremonia) durante y después del evento. Con el QR tendréis instrucciones.',
       },
       {
         title: 'Playlist colaborativa',
-        text: 'Pronto subiremos un enlace para sugerir canciones de baile.',
+        text: 'Modo Dance Dance Revolution activado: lista abierta de Spotify para añadir canciones en cualquier momento. Sonará en modo aleatorio. Nombre: Multiverso R&L Party.',
       },
     ],
   },
   multimedia: {
     id: 'multimedia',
     enabled: false,
-    title: 'Trailer de la misión',
-    subtitle: 'Espacio preparado para vídeo de los novios (sustituible por MP4 o YouTube).',
+    title: 'Video de los novios',
+    subtitle: 'Si finalmente lo tenemos, irá al inicio como apertura de la web.',
     video: {
-      poster: 'https://placehold.co/1200x675/0C142E/F7D247?text=POSTER+VIDEO+NOVIOS',
-      src: '/media/trailer-novios.mp4',
+      poster: '/media/video/poster-video-novios.jpg',
+      src: '/media/video/trailer-novios.mp4',
       type: 'video/mp4',
       fallbackText: 'Tu navegador no soporta vídeo HTML5.',
     },
@@ -242,26 +244,19 @@ export const siteContent = {
   rsvp: {
     id: 'confirmacion',
     title: 'Confirmación de asistencia',
-    subtitle: 'Escribidnos antes del 15 de abril de 2027 para organizar todo perfecto.',
-    phoneLabel: 'Tel',
+    subtitle: 'Preferible siempre por WhatsApp.',
+    phoneLabel: 'Teléfonos',
     emailLabel: 'Email',
-    whatsappActionLabel: 'Confirmar por WhatsApp',
+    whatsappActionLabel: 'Escribir por WhatsApp',
     contacts: [
       {
-        name: 'Laura',
-        phone: '+34 600 000 001',
-        whatsappUrl: 'https://wa.me/34600000001?text=Hola%20Laura%2C%20confirmo%20asistencia%20a%20la%20boda',
-        email: 'laura@ejemplo.com',
-      },
-      {
-        name: 'Rafa',
-        phone: '+34 600 000 002',
-        whatsappUrl: 'https://wa.me/34600000002?text=Hola%20Rafa%2C%20confirmo%20asistencia%20a%20la%20boda',
-        email: 'rafa@ejemplo.com',
+        name: 'Laura y Rafa',
+        phone: '627680946 // 638549989',
+        whatsappUrl: 'https://wa.me/34627680946',
+        email: 'lyrmicasa@gmail.com',
       },
     ],
-    templateMessage:
-      'Mensaje sugerido: "Hola, soy [Nombre]. Confirmo [X] asistentes. Tenemos/alergias: [detalle]."',
+    templateMessage: 'Mensaje sugerido: "Hola, soy [Nombre]. Confirmo [X] asistentes."',
   },
   faq: {
     id: 'faq',
@@ -278,7 +273,7 @@ export const siteContent = {
       },
       {
         title: '¿Hasta cuándo puedo confirmar?',
-        text: 'Como máximo hasta el 15 de abril de 2027.',
+        text: 'Como máximo hasta el 15/5/2026.',
       },
     ],
   },

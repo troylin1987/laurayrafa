@@ -204,16 +204,6 @@ export default function App() {
     return capitalizeFirst(raw);
   }, [event.dateISO, locale]);
 
-  const heroStampText = useMemo(
-    () =>
-      new Intl.DateTimeFormat(locale, {
-        day: '2-digit',
-        month: 'short',
-        year: 'numeric',
-      }).format(new Date(event.dateISO)),
-    [event.dateISO, locale]
-  );
-
   const countdownItems = [
     { value: countdown.days, label: dateSection.countdownUnits.days },
     { value: countdown.hours, label: dateSection.countdownUnits.hours },
@@ -299,9 +289,7 @@ export default function App() {
               >
                 <img src={heroImage.src} alt={heroImage.alt} loading={heroImage.loading} />
               </button>
-              <p className="hero-stamp">
-                {ui.heroStampPrefix} · {heroStampText}
-              </p>
+              <p className="hero-stamp">{ui.heroStampPrefix}</p>
             </div>
           ) : null}
         </div>
