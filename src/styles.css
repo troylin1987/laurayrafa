@@ -622,6 +622,12 @@ img {
   font-weight: 700;
 }
 
+.inline-link {
+  color: #fff2c1;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 .love-timeline article,
 .timeline article {
   padding-left: 2.7rem;

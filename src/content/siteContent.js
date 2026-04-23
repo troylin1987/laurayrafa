@@ -247,16 +247,25 @@ export const siteContent = {
     subtitle: 'Preferible siempre por WhatsApp.',
     phoneLabel: 'Teléfonos',
     emailLabel: 'Email',
-    whatsappActionLabel: 'Escribir por WhatsApp',
     contacts: [
       {
         name: 'Laura y Rafa',
         phone: '627680946 // 638549989',
-        whatsappUrl: 'https://wa.me/34627680946',
+        whatsappLinks: [
+          {
+            label: 'WhatsApp 627680946',
+            url: 'https://wa.me/34627680946?text=Hola%2C%20soy%20XXXX%20.%20Confirmo%20XXX%20asistentes.',
+          },
+          {
+            label: 'WhatsApp 638549989',
+            url: 'https://wa.me/34638549989?text=Hola%2C%20soy%20XXXX%20.%20Confirmo%20XXX%20asistentes.',
+          },
+        ],
         email: 'lyrmicasa@gmail.com',
       },
     ],
-    templateMessage: 'Mensaje sugerido: "Hola, soy [Nombre]. Confirmo [X] asistentes."',
+    templateMessage:
+      'Mensaje sugerido (modo friki): "Hola, soy XXXX . Confirmo XXX asistentes."',
   },
   faq: {
     id: 'faq',

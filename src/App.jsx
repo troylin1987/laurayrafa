@@ -471,11 +471,16 @@ export default function App() {
                   {rsvp.phoneLabel}: {contact.phone}
                 </p>
                 <p>
-                  {rsvp.emailLabel}: {contact.email}
+                  {rsvp.emailLabel}:{' '}
+                  <a href={`mailto:${contact.email}`} className="inline-link">
+                    {contact.email}
+                  </a>
                 </p>
-                <a href={contact.whatsappUrl} target="_blank" rel="noreferrer" className="btn btn-small">
-                  {rsvp.whatsappActionLabel}
-                </a>
+                {contact.whatsappLinks?.map((item) => (
+                  <a key={item.url} href={item.url} target="_blank" rel="noreferrer" className="btn btn-small">
+                    {item.label}
+                  </a>
+                ))}
               </article>
             ))}
           </div>
