@@ -44,7 +44,7 @@ export const siteContent = {
     ],
     images: [
       {
-        src: '/media/novios/hero-principal.jpeg',
+        src: 'media/novios/hero-principal.jpeg',
         alt: 'Foto principal de Laura y Rafa',
         loading: 'eager',
       },
@@ -60,7 +60,7 @@ export const siteContent = {
         bio:
           'Desde muy joven tuvo claro que el esfuerzo y la constancia eran la base de cualquier sueño. Entre estudios, trabajo y muchas ganas de construir un futuro, encontró en Rafa al compañero de viaje perfecto.',
         image: {
-          src: '/media/novios/laura.jpeg',
+          src: 'media/novios/laura.jpeg',
           alt: 'Foto de Laura',
           loading: 'lazy',
         },
@@ -70,7 +70,7 @@ export const siteContent = {
         bio:
           'Empezó aquel verano con 16 años queriendo ahorrar para su PSP y acabar de vacaciones con su hermano. No sabía que, entre cajas y trenes, empezaba la historia más importante de su vida.',
         image: {
-          src: '/media/novios/rafa.jpeg',
+          src: 'media/novios/rafa.jpeg',
           alt: 'Foto de Rafa',
           loading: 'lazy',
         },
@@ -83,7 +83,7 @@ export const siteContent = {
         text:
           'Madrid, julio de 2007. Entre el calor del asfalto y el aire acondicionado de El Corte Inglés de Nuevos Ministerios, nos conocimos trabajando en la línea de cajas: Rafa recogiendo cestas y Laura en caja. En los ratos tranquilos de las 16:00 y en el trayecto en tren hasta Atocha empezó todo.',
         image: {
-          src: '/media/timeline/2007-primer-encuentro.jpeg',
+          src: 'media/timeline/2007-primer-encuentro.jpeg',
           alt: 'Foto de Laura y Rafa jóvenes',
           loading: 'lazy',
         },
@@ -94,7 +94,7 @@ export const siteContent = {
         text:
           'Nuestro primer gran viaje fue con amigos, al más puro estilo Gandía Shore: La Mata (Alicante), unas 20 personas, un dúplex de 3 habitaciones y una organización digna del camarote de los hermanos Marx. Caótico, intenso e inolvidable.',
         image: {
-          src: '/media/timeline/2009-primer-viaje.jpeg',
+          src: 'media/timeline/2009-primer-viaje.jpeg',
           alt: 'Foto del primer viaje juntos',
           loading: 'lazy',
         },
@@ -105,7 +105,7 @@ export const siteContent = {
         text:
           'Después de 18 años persiguiendo un hogar en tiempos difíciles, dejamos de esperar el momento perfecto. Encontramos un rincón con encanto y nos lanzamos. Por fin empezamos a construir, día a día, la vida que llevábamos imaginando casi dos décadas.',
         image: {
-          src: '/media/timeline/2025-modo-cooperativo.jpeg',
+          src: 'media/timeline/2025-modo-cooperativo.jpeg',
           alt: 'Foto del comienzo de vida en común',
           loading: 'lazy',
         },
@@ -116,7 +116,7 @@ export const siteContent = {
         text:
           'Cuando por fin el universo se alineó, decidimos reorganizar nuestro mundo sin esperar más. Nuestra boda será íntima, auténtica y para los imprescindibles. Aviso rápido, sí, pero con el corazón clarísimo: en esa lista corta estáis vosotros.',
         image: {
-          src: '/media/timeline/2026-propuesta-epica.jpeg',
+          src: 'media/timeline/2026-propuesta-epica.jpeg',
           alt: 'Foto de la propuesta y anuncio de boda',
           loading: 'lazy',
         },
@@ -235,8 +235,8 @@ export const siteContent = {
     title: 'Video de los novios',
     subtitle: 'Si finalmente lo tenemos, irá al inicio como apertura de la web.',
     video: {
-      poster: '/media/video/poster-video-novios.jpeg',
-      src: '/media/video/trailer-novios.mp4',
+      poster: 'media/video/poster-video-novios.jpeg',
+      src: 'media/video/trailer-novios.mp4',
       type: 'video/mp4',
       fallbackText: 'Tu navegador no soporta vídeo HTML5.',
     },
