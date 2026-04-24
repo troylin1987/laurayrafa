@@ -250,14 +250,14 @@ export const siteContent = {
     contacts: [
       {
         name: 'Laura y Rafa',
-        phone: '627680946 // 638549989',
+        phone: 'Laura: 627680946 // Rafa: 638549989',
         whatsappLinks: [
           {
-            label: 'WhatsApp 627680946',
+            label: 'WhatsApp Laura (627680946)',
             url: 'https://wa.me/34627680946?text=Hola%2C%20soy%20Spiderman.%20Confirmo%20que%20ir%C3%A9%20con%20Mary%20Jane%20Watson.',
           },
           {
-            label: 'WhatsApp 638549989',
+            label: 'WhatsApp Rafa (638549989)',
             url: 'https://wa.me/34638549989?text=Hola%2C%20soy%20Spiderman.%20Confirmo%20que%20ir%C3%A9%20con%20Mary%20Jane%20Watson.',
           },
         ],
